@@ -9,7 +9,7 @@ def shuffle(C, W, A, B):
             W = W + A[i] - 1
         elif W <= A[i] + B[i] - 1:
             W = W - B[i]
-        return W
+    return W
 
 def main():
     T = int(stdin.readline()[:-1])
