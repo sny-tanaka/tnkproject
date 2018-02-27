@@ -18,30 +18,20 @@ def main():
     T = int(stdin.readline()[:-1])
     for i in range(T):
         r, t = [int(x) for x in stdin.readline()[:-1].split()]
-        flg = 0
-        mxn = 2**60
-        mnn = 0
-        n = (mxn - mnn) // 2 + mnn
-        s1 = sInk(n, r)
-        s2 = sInk(n+1, r)
-        while flg == 0:
-            if s1 <= t < s2:
-                print("Case #" + str(i + 1) + ": " + str(n))
-                flg = 1
+        maxN = 2**60
+        minN = 0
+        sa = maxN - minN
+        while sa != 1:
+            n = (maxN + minN) // 2
+            s = sInk(n, r)
+            if s > t:
+                maxN = n
+            elif s < t:
+                minN = n
+            elif s == t:
                 break
-            elif t == s2:
-                print("Case #" + str(i + 1) + ": " + str(n - 1))
-                flg = 1
-                break
-            else:
-                if t < s1:
-                    mxn = n
-                elif t > s1:
-                    min = n
-                n = (mxn - mnn) // 2 + mnn
-                s1 = sInk(n, r)
-                s2 = sInk(n+1, r)
-                
+            sa = maxN - minN
+        print("Case #" + str(i + 1) + ": " + str(n))           
     print("終了", file=stderr)
 
 if __name__ == '__main__':
