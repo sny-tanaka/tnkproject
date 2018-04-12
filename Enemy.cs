@@ -28,6 +28,8 @@ public class Enemy : MonoBehaviour {
 	}
 
 	void Update(){
+		// HPバーの値を現在HPに変更し、割合に応じて緑から赤へ徐々に変化させる
 		enemyhpslider.value = hp;
+		enemyhpslider.fillRect.GetComponent<Image>().color = Color.Lerp(Color.red, Color.green, (float)hp/maxhp);
 	}
 }
