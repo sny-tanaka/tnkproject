@@ -14,6 +14,7 @@ public class CharacterSet : MonoBehaviour {
 	public int type;
 	public int lv;
 	public int maxHp;
+	public int[] atk = new int[4];
 	public int gAtk;
 	public int cAtk;
 	public int pAtk;
